@@ -1,0 +1,102 @@
+@font-face {
+    font-family: "Druk-Wide";
+    src: url("/fonts/DrukWideWebBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Area-Normal";
+    src: url("/fonts/AreaNormal.otf") format("opentype");
+}
+
+:root {
+    --bg-color: #191C24;
+    /* --bg-color: #212121; */
+    --text-color: #fff;
+    --text-hover-color: #3D3D3D;
+    --head-font: "Druk-Wide", Helvetica, Arial, sans-serif;
+    --text-font: "Area-Normal", Helvetica, Arial, sans-serif;
+}
+
+/* ================================================ SPLASH SCREEN ========================================= */
+.splash-screen {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    z-index: 400;
+    background-color: var(--bg-color); */
+    /* display: none; */
+}
+
+.splash-screen svg {
+    /* width: 60%; */
+    transform: scale(2.5);
+}
+
+.splash-screen svg text {
+    display: flex;
+    gap: 0;
+}
+
+.splash-screen svg text,
+.splash-screen svg text tspan {
+    font-size: 4rem;
+    font-family: var(--head-font);
+    stroke: var(--text-color);
+    stroke-width: 1;
+    stroke-dasharray: 820;
+    stroke-dashoffset: 820;
+    animation: splash-text-draw 1s linear forwards;
+}
+
+.splash-screen .back-text {
+    fill: transparent;
+}
+
+.splash-screen .fill-rect {
+    height: 0;
+    animation: splash-fill-up 2s linear forwards 2s;
+}
+
+.splash-screen h1 {
+    font-size: 2rem;
+    position: absolute;
+    bottom: 0;
+    color: var(--text-color);
+    font-family: Helvetica;
+    font-weight: 100;
+    animation: fade 1.2s linear infinite;
+    transform: translateY(-100%);
+}
+
+@keyframes fade {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes splash-fill-up {
+    from {
+        height: 0;
+        y: 100%;
+    }
+
+    to {
+        height: 100%;
+        y: 10px;
+    }
+}
